@@ -2,6 +2,7 @@
 let
   cli-programs = with pkgs; [
     bazelisk
+    bazel-buildtools
     goimports
     kube3d
     kubectl

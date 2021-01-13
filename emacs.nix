@@ -25,6 +25,13 @@
         (prefer-coding-system 'utf-8)
       '';
       usePackage = {
+        bazel-mode = {
+          enable = true;
+          mode = [ ''"BUILD\\'"'' ];
+          config = ''
+            (setq bazel-mode-buildifier-before-save t)
+          '';
+        };
         dockerfile-mode = {
           enable = true;
           mode = [ ''"Dockerfile\\'"'' ];
