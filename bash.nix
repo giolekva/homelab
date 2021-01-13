@@ -6,10 +6,14 @@
       . ~/.nix-profile/etc/profile.d/nix.sh
     '';
     shellAliases = {
-      ll = "ls -l";
       ".." = "cd ..";
       bz = "bazelisk";
+      bazel = "bazelisk";
       enw = "emacs -nw";
+      g = "git";
+      hm = "home-manager";
+      k = "kubectl";
+      ll = "ls -l";
     };
   };
 }
