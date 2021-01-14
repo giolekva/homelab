@@ -1,7 +1,13 @@
 {
   programs.bash = {
     enable = true;
-    historyControl = [ "ignoredups" "ignorespace" ];
+    historyControl = [
+      "erasedups"
+      "ignoredups"
+      "ignorespace"
+    ];
+    historyFileSize = 10000000;
+    historySize = 10000;
     profileExtra = ''
       . ~/.nix-profile/etc/profile.d/nix.sh
     '';
@@ -18,6 +24,8 @@
       gp = "git push";
       gs = "git status";
       hm = "home-manager";
+      hmb = "home-manager build";
+      hms = "home-manager switch";
       k = "kubectl";
       ll = "ls -l";
     };
