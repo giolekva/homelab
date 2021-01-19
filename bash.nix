@@ -14,6 +14,8 @@
     shellAliases = {
       ".." = "cd ..";
       bz = "bazelisk";
+      bzb = "bazelisk build";
+      bzr = "bazelisk run";
       bazel = "bazelisk";
       e = "emacs -nw";
       enw = "emacs -nw";
