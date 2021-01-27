@@ -29,6 +29,7 @@
       hmb = "home-manager build";
       hms = "home-manager switch";
       k = "kubectl";
+      kl = "kill %";
       ll = "ls -l";
     };
   };
