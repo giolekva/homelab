@@ -24,6 +24,8 @@
       gc = "git commit -m";
       gd = "git diff";
       gp = "git push";
+      gpo = "git push og";
+      gpom = "git push og main";
       gs = "git status";
       hm = "home-manager";
       hmb = "home-manager build";
