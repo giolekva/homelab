@@ -10,7 +10,7 @@
         (global-set-key [(ctrl l)] 'goto-line)
         (global-set-key [(ctrl c) (c)] 'comment-region)
         (global-set-key [(ctrl c) (u)] 'uncomment-region)
-        (global-set-key [(ctrl c) (r)] 'query-replace)
+        (global-set-key [(ctrl c) (r)] 'replace-string)
 
         ;; Hide UI
         (tool-bar-mode -1)
