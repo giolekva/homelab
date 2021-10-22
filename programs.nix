@@ -1,16 +1,19 @@
 { config, pkgs, lib, ... }:
 let
   cli-programs = with pkgs; [
-    bazelisk
-    bazel-buildtools
+    gnumake
+    go
     goimports
-    kube3d
     kubectl
     kubernetes-helm
+    wget
   ];
 in
 {
   config = {
     home.packages = cli-programs;
+    home.sessionPath = [
+      "/Users/lekva/dev/go/bin"
+    ];
   };
 }

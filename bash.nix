@@ -34,5 +34,10 @@
       kl = "kill %";
       ll = "ls -l";
     };
+    sessionVariables = {
+      GOPATH = "/Users/lekva/dev/go";
+      GOBIN = "/Users/lekva/dev/go/bin";
+      KUBE_EDITOR = "emacs -nw";
+    };
   };
 }
