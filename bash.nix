@@ -1,3 +1,4 @@
+
 {
   programs.bash = {
     enable = true;
@@ -38,6 +39,12 @@
       GOPATH = "/Users/lekva/dev/go";
       GOBIN = "/Users/lekva/dev/go/bin";
       KUBE_EDITOR = "emacs -nw";
+      AWS_PROFILE = "deepchannel-infra";
     };
+    initExtra = ''
+      ssh-add ~/.ssh/id_rsa_github
+      ssh-add ~/.ssh/id_rsa_freeuni
+      . ~/dev/src/deepchannel/infrastructure/tools/aws-helper-functions
+    '';
   };
 }
