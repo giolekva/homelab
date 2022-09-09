@@ -13,13 +13,13 @@
       . ~/.nix-profile/etc/profile.d/nix.sh
     '';
     shellAliases = {
+      go = "go1.18";
       ".." = "cd ..";
       bz = "bazelisk";
       bzb = "bazelisk build";
       bzr = "bazelisk run";
       bazel = "bazelisk";
       e = "emacs -nw";
-      enw = "emacs -nw";
       g = "git";
       ga = "git add";
       gc = "git commit -m";
@@ -36,6 +36,7 @@
       ll = "ls -l";
     };
     sessionVariables = {
+      EDITOR = "emacs -nw";
       GOPATH = "/Users/lekva/dev/go";
       GOBIN = "/Users/lekva/dev/go/bin";
       KUBE_EDITOR = "emacs -nw";
