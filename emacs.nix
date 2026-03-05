@@ -30,7 +30,7 @@
         (setq show-paren-delay 0)
 
         ;; Yes/No
-        (setq 'confirm-kill-emacs (quote y-or-n-p))
+        (setq confirm-kill-emacs (quote y-or-n-p))
         (defalias 'yes-or-no-p 'y-or-n-p)
 
         ;; Startup
@@ -51,7 +51,7 @@
         (setq company-tooltip-align-annotations t)
 
         (load-theme 'zenburn t)
-        (setq projectile-project-search-path '("~/dev/src/" "~/dev/go/src/github.com/giolekva/"))
+        ;; (setq projectile-project-search-path '("~/dev/src/" "~/dev/go/src/github.com/giolekva/"))
         ;; (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
       '';
       usePackage = {

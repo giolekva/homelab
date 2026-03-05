@@ -1,37 +1,36 @@
 { config, pkgs, lib, ... }:
 let
   cli-programs = with pkgs; [
-    rust-analyzer
-    nodePackages.typescript-language-server
+    # rust-analyzer
+    # nodePackages.typescript-language-server
     # cargo
-    rustup
+    # rustup
     cmake
-    fluxcd
+    # fluxcd
     git
     gnumake
-    go
-    goimports
-    gopls
+    # go
+    # goimports
+    # gopls
     gnupg
-    helmfile
+    # helmfile
     jq
-    kubectl
-    kubernetes-helm
+    # kubectl
+    # kubernetes-helm
     python3
-    sops
+    # sops
     wget
     zbar
 
-    esbuild
+    # esbuild
 
-    wireguard-tools
+    # wireguard-tools
   ];
 in
 {
   config = {
     home.packages = cli-programs;
     home.sessionPath = [
-      "/Users/lekva/dev/go/bin"
     ];
   };
 }
