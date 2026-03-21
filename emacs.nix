@@ -21,9 +21,15 @@
         (global-set-key [(ctrl c) (r)] 'replace-string)
         (global-set-key [(ctrl c) (p)] 'projectile-command-map)
 
-        ;; Clipboard
-        (setq x-select-enable-clipboard t)
-        (setq x-select-enable-primary t)
+        ;; macOS clipboard
+        (setq interprogram-cut-function
+              (lambda (text &rest _)
+                (let ((process-connection-type nil))
+                  (let ((proc (start-process "pbcopy" nil "pbcopy")))
+                    (process-send-string proc text)
+                    (process-send-eof proc)))))
+        (setq interprogram-paste-function
+              (lambda () (shell-command-to-string "pbpaste")))
 
         ;; Tab width
         (setq tab-width 4)
@@ -110,6 +116,31 @@
 
         ;; JS
         (setq js-indent-level 2)
+
+        ;; Seamless emacs/tmux pane navigation (M-arrow)
+        (defun tmux-select-pane (direction)
+          (call-process "tmux" nil nil nil "select-pane" (concat "-" direction)))
+
+        (defun nav-left ()
+          (interactive)
+          (if (window-in-direction 'left) (windmove-left) (tmux-select-pane "L")))
+
+        (defun nav-right ()
+          (interactive)
+          (if (window-in-direction 'right) (windmove-right) (tmux-select-pane "R")))
+
+        (defun nav-up ()
+          (interactive)
+          (if (window-in-direction 'above) (windmove-up) (tmux-select-pane "U")))
+
+        (defun nav-down ()
+          (interactive)
+          (if (window-in-direction 'below) (windmove-down) (tmux-select-pane "D")))
+
+        (global-set-key (kbd "M-<left>")  #'nav-left)
+        (global-set-key (kbd "M-<right>") #'nav-right)
+        (global-set-key (kbd "M-<up>")    #'nav-up)
+        (global-set-key (kbd "M-<down>")  #'nav-down)
       '';
       usePackage = {
         vterm = {

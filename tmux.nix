@@ -28,6 +28,16 @@
       set-window-option -g mode-keys emacs
 
       set -g set-clipboard external
+
+      # macOS clipboard
+      bind -T copy-mode M-w send-keys -X copy-pipe-and-cancel "pbcopy"
+      bind ] run "pbpaste | tmux load-buffer - ; tmux paste-buffer"
+
+      # Seamless navigation with emacs (M-arrow)
+      bind -n M-Left  if-shell -F '#{m:*emacs*,#{pane_current_command}}' 'send-keys M-Left'  'select-pane -L'
+      bind -n M-Right if-shell -F '#{m:*emacs*,#{pane_current_command}}' 'send-keys M-Right' 'select-pane -R'
+      bind -n M-Up    if-shell -F '#{m:*emacs*,#{pane_current_command}}' 'send-keys M-Up'    'select-pane -U'
+      bind -n M-Down  if-shell -F '#{m:*emacs*,#{pane_current_command}}' 'send-keys M-Down'  'select-pane -D'
     '';
   };
 }
