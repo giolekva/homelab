@@ -15,10 +15,10 @@
       # bind C-q send-prefix
 
       # Make splits open in the current directory
-      #unbind %
-      #bind % split-window -h -c "#{pane_current_path}"
-      #unbind '"'
-      #bind '"' split-window -v -c "#{pane_current_path}"
+      unbind %
+      bind % split-window -h -c "#{pane_current_path}"
+      unbind '"'
+      bind '"' split-window -v -c "#{pane_current_path}"
 
       # Reduce escape time for faster key sequence recognition (e.g., for Neovim integration)
       set-option -sg escape-time 10

@@ -59,6 +59,8 @@
         (setq make-backup-files nil)
         (setq auto-save-default nil)
 
+        (save-place-mode 1)
+
         (setq-default show-trailing-whitespace t)
         (add-hook 'eat-mode-hook (lambda () (setq show-trailing-whitespace nil)))
         (prefer-coding-system 'utf-8)
@@ -254,8 +256,7 @@
           enable = true;
         };
         rjsx-mode = {
-          enable = true;
-          mode = [ ''("\\.tsx\\'" . rjsx-mode)'' ];
+          enable = false;
         };
         systemd = {
           enable = true;
