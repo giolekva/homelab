@@ -1,5 +1,14 @@
 { config, pkgs, ... }:
 {
+  home.activation.createAuthinfo = config.lib.dag.entryAfter [ "writeBoundary" ] ''
+    if [ ! -f "$HOME/.authinfo" ]; then
+      cat > "$HOME/.authinfo" << 'TMPL'
+# Uncomment and fill in for magit-forge:
+# machine api.github.com login YOUR_USERNAME^forge password ghp_YOUR_TOKEN
+TMPL
+    fi
+  '';
+
   services.emacs.enable = true;
   programs.emacs = {
     enable = true;

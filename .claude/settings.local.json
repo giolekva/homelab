@@ -3,7 +3,11 @@
     "allow": [
       "Bash(ls:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(nix-env -qaP '.*aerospace.*')",
+      "WebSearch",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(home-manager switch:*)"
     ]
   }
 }

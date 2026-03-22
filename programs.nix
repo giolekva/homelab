@@ -3,7 +3,6 @@ let
   cli-programs = with pkgs; [
     clang
     cmake
-    git
     gnumake
     gnupg
     jq
