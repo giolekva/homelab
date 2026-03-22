@@ -44,6 +44,7 @@
     };
     initExtra = ''
       eval "$(direnv hook bash)"
+      PS1='\w \$ '
     '';
   };
 }
