@@ -5,6 +5,7 @@ in
 {
   imports = [
     nur-no-pkgs.repos.rycee.hmModules.emacs-init
+    ./aerospace.nix
     ./alacritty.nix
     ./bash.nix
     ./emacs.nix
