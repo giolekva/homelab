@@ -43,7 +43,8 @@
       LC_ALL = "en_US.UTF-8";
     };
     initExtra = ''
-      eval "$(direnv hook bash)"
+      export PATH="$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:$PATH"
+
       PS1='\w \$ '
     '';
   };

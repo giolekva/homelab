@@ -12,7 +12,6 @@ let
 
     claude-code
 
-    direnv
     pnpm
     nodejs_25
     nodePackages.typescript

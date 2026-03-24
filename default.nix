@@ -14,6 +14,7 @@ in
     ./aerospace.nix
     ./alacritty.nix
     ./bash.nix
+    ./direnv.nix
     ./emacs.nix
     ./git.nix
     ./programs.nix

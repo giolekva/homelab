@@ -10,6 +10,24 @@
       default-root-container-orientation = "auto";
       accordion-padding = 30;
 
+      # Pin communication workspaces to built-in display
+      workspace-to-monitor-force-assignment = {
+        S = "built-in";
+        G = "built-in";
+      };
+
+      # Auto-move Slack and Gather to their dedicated workspaces
+      on-window-detected = [
+        {
+          "if".app-id = "com.tinyspeck.slackmacgap";
+          run = "move-node-to-workspace S";
+        }
+        {
+          "if".app-id = "com.gather.GatherV2";
+          run = "move-node-to-workspace G";
+        }
+      ];
+
       mode.main.binding = {
         # Focus (alt + hjkl)
         alt-h = "focus left";
@@ -43,6 +61,9 @@
         alt-7 = "workspace 7";
         alt-8 = "workspace 8";
         alt-9 = "workspace 9";
+
+        alt-s = "workspace S";
+        alt-g = "workspace G";
 
         # Move window to workspace
         alt-shift-1 = "move-node-to-workspace 1";
