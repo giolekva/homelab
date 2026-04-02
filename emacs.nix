@@ -128,7 +128,7 @@ TMPL
         ;; JS
         (setq js-indent-level 2)
 
-        ;; Seamless emacs/tmux pane navigation (M-arrow)
+        ;; Seamless emacs/tmux pane navigation (M-S-hjkl)
         (defun tmux-select-pane (direction)
           (call-process "tmux" nil nil nil "select-pane" (concat "-" direction)))
 
@@ -148,10 +148,10 @@ TMPL
           (interactive)
           (if (window-in-direction 'below) (windmove-down) (tmux-select-pane "D")))
 
-        (global-set-key (kbd "M-<left>")  #'nav-left)
-        (global-set-key (kbd "M-<right>") #'nav-right)
-        (global-set-key (kbd "M-<up>")    #'nav-up)
-        (global-set-key (kbd "M-<down>")  #'nav-down)
+        (global-set-key (kbd "M-H") #'nav-left)
+        (global-set-key (kbd "M-L") #'nav-right)
+        (global-set-key (kbd "M-K") #'nav-up)
+        (global-set-key (kbd "M-J") #'nav-down)
       '';
       usePackage = {
         vterm = {
@@ -221,6 +221,12 @@ TMPL
             (setq lsp-completion-show-kind t)
             (setq lsp-response-timeout 30)
             (setq lsp-enable-file-watchers nil)
+            (setq lsp-disabled-clients '(ts-ls))
+            (lsp-register-client
+             (make-lsp-client
+              :new-connection (lsp-stdio-connection '("vtsls" "--stdio"))
+              :major-modes '(typescript-mode typescript-ts-mode tsx-ts-mode js-mode js-ts-mode)
+              :server-id 'vtsls))
             (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
           '';
         };
@@ -236,6 +242,9 @@ TMPL
         };
         magit = {
           enable = true;
+          config = ''
+            (setq magit-git-executable "${pkgs.git}/bin/git")
+          '';
         };
         forge = {
           enable = true;

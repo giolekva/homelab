@@ -46,11 +46,11 @@
       set -g pane-active-border-style 'fg=#7f9f7f'
       set -g message-style 'bg=#3f3f3f,fg=#dcdccc'
 
-      # Seamless navigation with emacs (M-arrow)
-      bind -n M-Left  if-shell -F '#{m:*emacs*,#{pane_current_command}}' 'send-keys M-Left'  'select-pane -L'
-      bind -n M-Right if-shell -F '#{m:*emacs*,#{pane_current_command}}' 'send-keys M-Right' 'select-pane -R'
-      bind -n M-Up    if-shell -F '#{m:*emacs*,#{pane_current_command}}' 'send-keys M-Up'    'select-pane -U'
-      bind -n M-Down  if-shell -F '#{m:*emacs*,#{pane_current_command}}' 'send-keys M-Down'  'select-pane -D'
+      # Seamless navigation with emacs (M-S-hjkl)
+      bind -n M-H if-shell -F '#{m:*emacs*,#{pane_current_command}}' 'send-keys M-H' 'select-pane -L'
+      bind -n M-L if-shell -F '#{m:*emacs*,#{pane_current_command}}' 'send-keys M-L' 'select-pane -R'
+      bind -n M-K if-shell -F '#{m:*emacs*,#{pane_current_command}}' 'send-keys M-K' 'select-pane -U'
+      bind -n M-J if-shell -F '#{m:*emacs*,#{pane_current_command}}' 'send-keys M-J' 'select-pane -D'
     '';
   };
 }

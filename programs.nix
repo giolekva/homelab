@@ -14,8 +14,8 @@ let
 
     pnpm
     nodejs_25
-    nodePackages.typescript
-    nodePackages.typescript-language-server
+    typescript
+    vtsls
     ripgrep
     # tmux
 

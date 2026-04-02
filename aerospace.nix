@@ -35,11 +35,6 @@
         alt-k = "focus up";
         alt-l = "focus right";
 
-        # Move windows (alt+shift + hjkl)
-        alt-shift-h = "move left";
-        alt-shift-j = "move down";
-        alt-shift-k = "move up";
-        alt-shift-l = "move right";
 
         # Resize
         alt-minus = "resize smart -50";
@@ -48,7 +43,7 @@
         # Layout
         alt-slash = "layout tiles horizontal vertical";
         alt-comma = "layout accordion horizontal vertical";
-        alt-f = "fullscreen";
+        alt-shift-m = "fullscreen";
         alt-shift-f = "layout floating tiling";
 
         # Workspaces
