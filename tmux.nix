@@ -30,6 +30,8 @@
       set-option -g status-keys emacs
       set-window-option -g mode-keys emacs
 
+      set -g base-index 1
+      set -g renumber-windows on
       set -g set-clipboard external
 
       # macOS clipboard

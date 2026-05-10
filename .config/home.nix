@@ -8,6 +8,8 @@
   home.username = "lekva";
   home.homeDirectory = "/Users/lekva";
 
+  homelab.machine = "headroom";
+
   imports = [
     ~/dev/src/homelab
   ];

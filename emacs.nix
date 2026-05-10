@@ -221,7 +221,10 @@ TMPL
             (setq lsp-completion-show-kind t)
             (setq lsp-response-timeout 30)
             (setq lsp-enable-file-watchers nil)
-            (setq lsp-disabled-clients '(ts-ls))
+            (setq lsp-headerline-breadcrumb-enable nil)
+            (setq lsp-lens-enable nil)
+            (setq-default eldoc-documentation-functions nil)
+            (setq lsp-disabled-clients '(ts-ls semgrep-ls))
             (lsp-register-client
              (make-lsp-client
               :new-connection (lsp-stdio-connection '("vtsls" "--stdio"))
@@ -233,8 +236,10 @@ TMPL
         lsp-ui = {
           enable = true;
           config = ''
-            (setq lsp-ui-doc-enable t)
-            (setq lsp-ui-sideline-enable t)
+            (setq lsp-ui-sideline-enable nil)
+            (setq lsp-ui-doc-enable nil)
+            (setq lsp-eldoc-render-all t)
+            (setq lsp-ui-doc-show-with-cursor t)
           '';
         };
         which-key = {

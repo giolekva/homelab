@@ -34,6 +34,7 @@
       k = "kubectl";
       kl = "kill %";
       ll = "ls -l";
+      cc = "claude --add-dir=$HOME/dev/src/mp-skills";
     };
     sessionVariables = {
       EDITOR = "emacsclient -n";
