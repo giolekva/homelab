@@ -1,26 +1,23 @@
 { config, pkgs, lib, ... }:
 let
   cli-programs = with pkgs; [
+    alacritty-theme
     clang
     cmake
+    go
+    gopls
     gnumake
     gnupg
     jq
-    python3
-    wget
-    zbar
-
-    claude-code
-
+    k9s
+    pi-coding-agent
     pnpm
-    nodejs_25
+    python3
+    ripgrep
     typescript
     vtsls
-    ripgrep
-    # tmux
-
-    # ghostty
-    alacritty-theme
+    wget
+    zbar
   ];
 in
 {

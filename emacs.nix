@@ -103,7 +103,6 @@ TMPL
           (add-hook 'before-save-hook 'eglot-code-action-organize-imports t t))
         (add-hook 'go-ts-mode-hook 'eglot-ensure)
         (add-hook 'go-ts-mode-hook 'go-install-save-hooks)
-        (add-hook 'go-ts-mode-hook 'ivy-mode)
         (add-to-list 'eglot-server-programs '((go-ts-mode go-mode) "gopls"))
 
         ;; TypeScript lsp-mode
@@ -154,10 +153,51 @@ TMPL
         (global-set-key (kbd "M-J") #'nav-down)
       '';
       usePackage = {
-        vterm = {
+        orderless = {
           enable = true;
+          config = ''
+            (setq completion-styles '(orderless basic)
+                  completion-category-defaults nil
+                  completion-category-overrides '((file (styles partial-completion))))
+          '';
         };
-        eat = {
+        vertico = {
+          enable = true;
+          init = ''
+            (vertico-mode 1)
+            (set-face-attribute 'vertico-current nil :underline nil :background "#3e4451")
+          '';
+        };
+        marginalia = {
+          enable = true;
+          init = "(marginalia-mode 1)";
+          bindLocal = {
+            minibuffer-local-map = {
+              "M-A" = "marginalia-cycle";
+            };
+          };
+        };
+        consult = {
+          enable = true;
+          bind = {
+            "C-s" = "consult-line";
+            "C-x b" = "consult-buffer";
+          };
+          config = ''
+            (setq consult-async-min-input 2)
+            (setq consult-async-input-debounce 0.1)
+          '';
+        };
+        consult-projectile = {
+          enable = true;
+          after = [ "consult" "projectile" ];
+          bind = {
+            "C-c p s r" = "consult-projectile-ripgrep";
+            "C-c p f"   = "consult-projectile-find-file";
+          };
+        };
+
+        vterm = {
           enable = true;
         };
         auto-complete = {
@@ -191,6 +231,9 @@ TMPL
 	        mode = [''"\\.go\\'"''];
         };
         ivy = {
+          enable = false;
+        };
+        jenkinsfile-mode = {
           enable = true;
         };
         jest-test-mode = {
@@ -265,7 +308,7 @@ TMPL
         projectile = {
           enable = true;
           config = ''
-            (setq projectile-completion-system 'ivy)
+            (setq projectile-completion-system 'default)
           '';
         };
         python = {

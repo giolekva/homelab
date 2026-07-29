@@ -8,5 +8,10 @@
     package = pkgs.direnv.overrideAttrs (old: {
       env = (old.env or {}) // { CGO_ENABLED = 1; };
     });
+    config = {
+      global = {
+        log_filter = "^$";
+      };
+    };
   };
 }

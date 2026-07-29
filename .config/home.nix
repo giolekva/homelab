@@ -8,7 +8,7 @@
   home.username = "lekva";
   home.homeDirectory = "/Users/lekva";
 
-  homelab.machine = "headroom";
+  homelab.machine = "private";
 
   imports = [
     ~/dev/src/homelab

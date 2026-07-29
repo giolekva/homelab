@@ -13,7 +13,6 @@
       . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
     '';
     shellAliases = {
-      go = "go1.18";
       ".." = "cd ..";
       bz = "bazelisk";
       bzb = "bazelisk build";
